@@ -29,13 +29,20 @@ const addIssuesToDom = (issues) => {
     const issuesOutput = document.querySelector('#issues');
     issuesOutput.innerHTML = '';
     if (issues.length === 0) {
-        issuesOutput.innerHTML = '<h4>No issues found!</h4>';
+        issuesOutput.innerHTML = '<h4 class="text-center">No issues found!</h4><br>';
     } else {
+        let count = 1; 
+        console.log(typeof issues);
+        // get length of issues
+        const issuesLength = issues.length;
+        issuesOutput.innerHTML = `<h4 class="text-center">${issuesLength} issues found!</h4><br>`;
+
+        // loop through issues
         issues.forEach(issue => {
             const output = `
                 <div class="card mb-5"> 
                     <div class="card-body">
-                        <h4>${issue.message}</h4>
+                        <h4>${count}: ${issue.message}</h4>
 
                         <p class="bg-light p-3 my-3">
                             ${escapeHTML(issue.context)}
@@ -49,6 +56,8 @@ const addIssuesToDom = (issues) => {
             `;
 
             issuesOutput.innerHTML += output;
+            count++;
+
         });
     }
 
