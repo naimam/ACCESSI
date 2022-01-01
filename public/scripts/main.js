@@ -3,10 +3,9 @@ const testAccess = async (e) => {
     e.preventDefault();
 
     const url = document.querySelector('#url').value;
-    console.log(url);
 
     if( url === '' ) {
-        alert('Please enter a valid url');
+        alert('Please enter a valid url.');
     } else {
         setLoading();
 
@@ -14,7 +13,7 @@ const testAccess = async (e) => {
 
         if(response.status !== 200) {
             setLoading(false);
-            alert('Something went wrong');
+            alert('Something went wrong. Please try again.');
         } else {
             const {issues} = await response.json();
             addIssuesToDom(issues);
@@ -32,7 +31,6 @@ const addIssuesToDom = (issues) => {
         issuesOutput.innerHTML = '<h4 class="text-center">No issues found!</h4><br>';
     } else {
         let count = 1; 
-        console.log(typeof issues);
         // get length of issues
         const issuesLength = issues.length;
         issuesOutput.innerHTML = `<h4 class="text-center">${issuesLength} issues found!</h4><br>`;
