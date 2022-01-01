@@ -1,7 +1,7 @@
 {
   "name": "accessi",
   "version": "1.0.0",
-  "description": "",
+  "description": "Created using https://github.com/pa11y/pa11y !",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
